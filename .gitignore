@@ -29,3 +29,8 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
+node_modules/
+client/node_modules/
+client/dist/
+client/package-lock.json

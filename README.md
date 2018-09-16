@@ -4,9 +4,24 @@ This is a Java Web application based on Web Services (SOAP and REST).
 
 The application represents a simple e-commerce online store for selling and buying goods.
 
-### Architecture
+### How to start project
+To run server side you need:
+- Java 1.8 or later;
+- GlassFish 5.0 or later;
 
-The app is build up with Java EE service GlassFish.
+To run client side you need:
+- Node 10.8 or later;
+
+Then run the following:
+```
+cd client
+npm i
+npm start
+```
+
+### Architecture
+#### Server
+Server app is build up with Java EE service GlassFish.
 
 Currently now there are 2 SOAP services: ```ProductCatalog``` and ```ShopInfo```
 
@@ -111,3 +126,6 @@ Example of SOAP request for ```ProductCatalog.getProductsByCategory("films")```:
     </S:Body>
 </S:Envelope>
 ```
+
+#### Client
+Client is build on NodeJS/Angular 6 stack.
