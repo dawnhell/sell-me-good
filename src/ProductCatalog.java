@@ -3,26 +3,38 @@ import business.ProductServiceImpl;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import javax.xml.ws.Endpoint;
-
 import java.util.List;
 
-@WebService(targetNamespace = "http://test")
+@WebService(
+    targetNamespace = "http://sellmegood.com",
+    name = "ProductCatalog",
+    serviceName = "ProductCatalogService",
+    portName = "ProductCatalogPort"
+)
 public class ProductCatalog {
-  private ProductServiceImpl productService = new ProductServiceImpl();
+    private ProductServiceImpl productService = new ProductServiceImpl();
 
-  @WebMethod
-  public List<String> getProductCategories () {
-    return productService.getProductCategories();
-  }
+    @WebMethod(
+        action = "get_product_categories",
+        operationName = "getProductCategories"
+    )
+    public List<String> getProductCategories () {
+        return productService.getProductCategories();
+    }
 
-  @WebMethod
-  public List<String> getProductsByCategory (String category) {
-    return productService.getProductsByCategory(category);
-  }
+    @WebMethod(
+        action = "get_products_by_category",
+        operationName = "getProductsByCategory"
+    )
+    public List<String> getProductsByCategory (String category) {
+        return productService.getProductsByCategory(category);
+    }
 
-  @WebMethod
-  public boolean addProduct (String category, String product) {
-    return productService.addProduct(category, product);
-  }
+    @WebMethod(
+        action = "add_product",
+        operationName = "addProduct"
+    )
+    public boolean addProduct (String category, String product) {
+        return productService.addProduct(category, product);
+    }
 }
