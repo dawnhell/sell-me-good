@@ -1,9 +1,22 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(
+    name = "Product"
+)
+@XmlType(
+    propOrder = {
+        "name", "price", "sku"
+    }
+)
 public class Product {
     private String name;
     private String sku;
     private double price;
+
+    public Product() {}
 
     public Product(String name, String sku, double price) {
         this.name = name;

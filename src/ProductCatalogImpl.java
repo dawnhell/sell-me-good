@@ -1,6 +1,7 @@
 import business.ProductServiceImpl;
 import model.Product;
 
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import java.util.List;
 
