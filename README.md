@@ -12,25 +12,33 @@ Currently now there are 2 SOAP services: ```ProductCatalog``` and ```ShopInfo```
 
 Example of the WSDL file for ```ShopInfo``` service:
 ```$xslt
-
 <definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sellmegood.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://sellmegood.com" name="ShopInfoService">
     <types>
         <xsd:schema>
             <xsd:import namespace="http://sellmegood.com" schemaLocation="http://vladislav-laptop:8080/sell_me_good_war_exploded/ShopInfoService?xsd=1"/>
         </xsd:schema>
     </types>
+    
     <message name="getShopInfo">
         <part name="parameters" element="tns:getShopInfo"/>
     </message>
+
     <message name="getShopInfoResponse">
         <part name="parameters" element="tns:getShopInfoResponse"/>
     </message>
+
+    <message name="InvalidInputException">
+        <part name="fault" element="tns:InvalidInputException"/>
+    </message>
+
     <portType name="ShopInfoImpl">
         <operation name="getShopInfo">
             <input wsam:Action="get_shop_info" message="tns:getShopInfo"/>
             <output wsam:Action="http://sellmegood.com/ShopInfoImpl/getShopInfoResponse" message="tns:getShopInfoResponse"/>
+            <fault message="tns:InvalidInputException" name="InvalidInputException" wsam:Action="http://sellmegood.com/ShopInfoImpl/getShopInfo/Fault/InvalidInputException"/>
         </operation>
     </portType>
+
     <binding name="ShopInfoPortBinding" type="tns:ShopInfoImpl">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
         <operation name="getShopInfo">
@@ -41,8 +49,12 @@ Example of the WSDL file for ```ShopInfo``` service:
             <output>
                 <soap:body use="literal"/>
             </output>
+            <fault name="InvalidInputException">
+                <soap:fault name="InvalidInputException" use="literal"/>
+            </fault>
         </operation>
     </binding>
+
     <service name="ShopInfoService">
         <port name="ShopInfoPort" binding="tns:ShopInfoPortBinding">
             <soap:address location="http://vladislav-laptop:8080/sell_me_good_war_exploded/ShopInfoService"/>
