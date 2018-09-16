@@ -1,25 +1,27 @@
 package business;
 
+import model.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductServiceImpl {
-    private List<String> booksList = new ArrayList<>();
-    private List<String> filmsList = new ArrayList<>();
-    private List<String> musicList = new ArrayList<>();
+    private List<Product> booksList = new ArrayList<>();
+    private List<Product> filmsList = new ArrayList<>();
+    private List<Product> musicList = new ArrayList<>();
 
     public ProductServiceImpl () {
-        booksList.add("Book 1");
-        booksList.add("Book 2");
-        booksList.add("Book 3");
+        booksList.add(new Product("Book 1", "book1 sku", 10));
+        booksList.add(new Product("Book 2", "book2 sku", 20));
+        booksList.add(new Product("Book 3", "book3 sku", 30));
 
-        filmsList.add("Film 1");
-        filmsList.add("Film 2");
-        filmsList.add("Film 3");
+        filmsList.add(new Product("Film 1", "film1 sku", 11));
+        filmsList.add(new Product("Film 2", "film2 sku", 12));
+        filmsList.add(new Product("Film 3", "film3 sku", 13));
 
-        musicList.add("Music 1");
-        musicList.add("Music 2");
-        musicList.add("Music 3");
+        musicList.add(new Product("Music 1", "music1 sku", 21));
+        musicList.add(new Product("Music 2", "music2 sku", 22));
+        musicList.add(new Product("Music 3", "music3 sku", 23));
 
     }
 
@@ -33,7 +35,7 @@ public class ProductServiceImpl {
         return categories;
     }
 
-    public List<String> getProductsByCategory (String category) {
+    public List<Product> getProductsByCategory (String category) {
         switch (category.toLowerCase()) {
             case "books":
                 return booksList;
@@ -51,15 +53,15 @@ public class ProductServiceImpl {
     public boolean addProduct (String category, String product) {
         switch (category.toLowerCase()) {
             case "books":
-                booksList.add(product);
+                booksList.add(new Product(product, "", 0));
                 break;
 
             case "films":
-                filmsList.add(product);
+                filmsList.add(new Product(product, "", 0));
                 break;
 
             case "music":
-                musicList.add(product);
+                musicList.add(new Product(product, "", 0));
                 break;
 
             default:
