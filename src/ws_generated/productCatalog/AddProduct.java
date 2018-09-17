@@ -1,5 +1,5 @@
 
-package ws.shopInfo;
+package ws_generated.productCatalog;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,17 +7,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for InvalidInputException complex type.
+ * <p>Java class for addProduct complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="InvalidInputException">
+ * &lt;complexType name="addProduct">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="errorDetails" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,61 +27,61 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InvalidInputException", propOrder = {
-    "errorDetails",
-    "message"
+@XmlType(name = "addProduct", propOrder = {
+    "arg0",
+    "arg1"
 })
-public class InvalidInputException {
+public class AddProduct {
 
-    protected String errorDetails;
-    protected String message;
+    protected String arg0;
+    protected String arg1;
 
     /**
-     * Gets the value of the errorDetails property.
+     * Gets the value of the arg0 property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getErrorDetails() {
-        return errorDetails;
+    public String getArg0() {
+        return arg0;
     }
 
     /**
-     * Sets the value of the errorDetails property.
+     * Sets the value of the arg0 property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setErrorDetails(String value) {
-        this.errorDetails = value;
+    public void setArg0(String value) {
+        this.arg0 = value;
     }
 
     /**
-     * Gets the value of the message property.
+     * Gets the value of the arg1 property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getMessage() {
-        return message;
+    public String getArg1() {
+        return arg1;
     }
 
     /**
-     * Sets the value of the message property.
+     * Sets the value of the arg1 property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setMessage(String value) {
-        this.message = value;
+    public void setArg1(String value) {
+        this.arg1 = value;
     }
 
 }

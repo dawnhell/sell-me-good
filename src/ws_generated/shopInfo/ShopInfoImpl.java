@@ -1,5 +1,5 @@
 
-package ws.shopInfo;
+package ws_generated.shopInfo;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

@@ -1,5 +1,5 @@
 
-package ws.shopInfo;
+package ws_generated.shopInfo;
 
 import java.net.MalformedURLException;
 import java.net.URL;

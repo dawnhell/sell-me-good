@@ -1,5 +1,5 @@
 
-package ws.shopInfo;
+package ws_generated.shopInfo;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

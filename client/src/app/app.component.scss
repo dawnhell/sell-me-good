@@ -1,0 +1,28 @@
+.nav-links {
+  margin: 0 0 0 50px;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: #ffffff;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .3s;
+      padding: 20px 15px;
+
+      &.active {
+        color: #b1b1b1;
+      }
+    }
+
+    &:hover a {
+      color: #b1b1b1;
+      cursor: pointer;
+    }
+  }
+}

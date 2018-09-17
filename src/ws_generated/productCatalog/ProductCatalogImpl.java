@@ -1,5 +1,5 @@
 
-package ws.productCatalog;
+package ws_generated.productCatalog;
 
 import java.util.List;
 import javax.jws.WebMethod;
