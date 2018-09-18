@@ -1,5 +1,6 @@
+import model.Info;
+
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -19,5 +20,5 @@ public interface ShopInfo {
     @WebResult(
         partName = "shopInfo"
     )
-    String getShopInfo (@WebParam(partName = "property") String property) throws InvalidInputException;
+    Info getShopInfo ();
 }

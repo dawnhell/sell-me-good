@@ -57,4 +57,14 @@ public class Info {
     public void setAbout(String about) {
         this.about = about;
     }
+
+    @Override
+    public String toString() {
+        return "Info{" +
+            "shopName='" + shopName + '\'' +
+            ", foundationDate='" + foundationDate + '\'' +
+            ", author='" + author + '\'' +
+            ", about='" + about + '\'' +
+            '}';
+    }
 }

@@ -1,17 +1,18 @@
 package dao;
 
+import ds.InfoDS;
 import model.Info;
 
 public class InfoDAOImpl implements InfoDAO {
-//    private final DataSource dataSource;
+    private final InfoDS infoDS;
 
-    public InfoDAOImpl(/*DataSource dataSource*/) {
-//        this.dataSource = dataSource;
+    public InfoDAOImpl() {
+        this.infoDS = new InfoDS();
     }
 
     @Override
     public Info getInfo () {
-        return new Info();
+        return this.infoDS.getInfo();
     }
 
     @Override
