@@ -1,7 +1,10 @@
-<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sellmegood.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://sellmegood.com" name="ProductCatalogService">
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sellmegood.com"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:wsam="http://www.w3.org/1999/xhtml" targetNamespace="http://sellmegood.com"
+             name="ProductCatalogService">
     <types>
         <xsd:schema>
-            <xsd:import namespace="http://sellmegood.com" schemaLocation="http://vladislav-laptop:8080/sell_me_good_war_exploded/ProductCatalogService?xsd=1"/>
+            <xsd:import namespace="http://sellmegood.com" schemaLocation="http://localhost:8080/sell_me_good_war_exploded/ProductCatalogService?xsd=1"/>
         </xsd:schema>
     </types>
     <message name="getProductCategories">
@@ -68,7 +71,7 @@
     </binding>
     <service name="ProductCatalogService">
         <port name="ProductCatalogPort" binding="tns:ProductCatalogPortBinding">
-            <soap:address location="http://vladislav-laptop:8080/sell_me_good_war_exploded/ProductCatalogService"/>
+            <soap:address location="http://localhost:8080/sell_me_good_war_exploded/ProductCatalogService"/>
         </port>
     </service>
 </definitions>

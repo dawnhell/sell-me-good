@@ -1,10 +1,14 @@
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 
 @WebService(
     endpointInterface = "ShopInfo",
     targetNamespace = "http://sellmegood.com",
     serviceName = "ShopInfoService",
     portName = "ShopInfoPort"
+)
+@SOAPBinding(
+    style = SOAPBinding.Style.RPC
 )
 public class ShopInfoImpl implements ShopInfo {
     @Override
