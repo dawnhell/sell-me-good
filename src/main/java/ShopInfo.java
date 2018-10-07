@@ -20,5 +20,5 @@ public interface ShopInfo {
     @WebResult(
         partName = "shopInfo"
     )
-    Info getShopInfo ();
+    Info getShopInfo();
 }
