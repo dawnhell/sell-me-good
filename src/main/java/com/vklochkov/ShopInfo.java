@@ -1,4 +1,4 @@
-import model.Info;
+import com.vklochkov.model.Info;
 
 import javax.jws.WebMethod;
 import javax.jws.WebResult;

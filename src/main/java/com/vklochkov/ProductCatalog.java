@@ -1,4 +1,4 @@
-import model.Product;
+import com.vklochkov.model.Product;
 
 import javax.jws.WebMethod;
 import javax.jws.WebResult;

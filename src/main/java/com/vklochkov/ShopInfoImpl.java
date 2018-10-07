@@ -1,5 +1,5 @@
-import dao.InfoDAOImpl;
-import model.Info;
+import com.vklochkov.dao.InfoDAOImpl;
+import com.vklochkov.model.Info;
 
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;

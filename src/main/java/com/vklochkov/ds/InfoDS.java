@@ -1,6 +1,6 @@
-package ds;
+package com.vklochkov.ds;
 
-import model.Info;
+import com.vklochkov.model.Info;
 
 import java.sql.*;
 

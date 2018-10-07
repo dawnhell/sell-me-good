@@ -1,5 +1,5 @@
-import business.ProductServiceImpl;
-import model.Product;
+import com.vklochkov.business.ProductServiceImpl;
+import com.vklochkov.model.Product;
 
 import javax.jws.WebService;
 import java.util.List;

@@ -1,6 +1,6 @@
-package dao;
+package com.vklochkov.dao;
 
-import model.Info;
+import com.vklochkov.model.Info;
 
 public interface InfoDAO {
     public Info getInfo();

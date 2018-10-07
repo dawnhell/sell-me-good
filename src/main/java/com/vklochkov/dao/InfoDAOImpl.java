@@ -1,7 +1,7 @@
-package dao;
+package com.vklochkov.dao;
 
-import ds.InfoDS;
-import model.Info;
+import com.vklochkov.ds.InfoDS;
+import com.vklochkov.model.Info;
 
 public class InfoDAOImpl implements InfoDAO {
     private final InfoDS infoDS;

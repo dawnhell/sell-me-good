@@ -1,6 +1,6 @@
-package business;
+package com.vklochkov.business;
 
-import model.Product;
+import com.vklochkov.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
