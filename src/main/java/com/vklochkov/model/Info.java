@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(
-    name = "Info"
+    name = "Info.ts"
 )
 @XmlType(
     propOrder = {
@@ -60,7 +60,7 @@ public class Info {
 
     @Override
     public String toString() {
-        return "Info{" +
+        return "Info.ts{" +
             "shopName='" + shopName + '\'' +
             ", foundationDate='" + foundationDate + '\'' +
             ", author='" + author + '\'' +

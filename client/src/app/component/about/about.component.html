@@ -1,0 +1,10 @@
+<div class="about-container" *ngIf="!info">
+  <nz-alert nzType="info" nzMessage="Loading information."></nz-alert>
+</div>
+
+<div class="about-container" *ngIf="info">
+  <h3>Shop name: {{info.shopName}}</h3>
+  <h4>Author: {{info.author}}</h4>
+  <h4>Foundation date: {{info.foundationDate}}</h4>
+  <p>{{info.about}}</p>
+</div>

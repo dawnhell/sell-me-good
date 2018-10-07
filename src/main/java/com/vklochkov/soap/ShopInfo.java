@@ -1,3 +1,5 @@
+package com.vklochkov.soap;
+
 import com.vklochkov.model.Info;
 
 import javax.jws.WebMethod;
@@ -7,7 +9,7 @@ import javax.jws.soap.SOAPBinding;
 
 @WebService(
     targetNamespace = "http://sellmegood.com",
-    name = "ShopInfoImpl"
+    name = "com.vklochkov.soap.ShopInfoImpl"
 )
 @SOAPBinding(
     style = SOAPBinding.Style.RPC

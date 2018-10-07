@@ -1,3 +1,5 @@
+package com.vklochkov.soap;
+
 import com.vklochkov.business.ProductServiceImpl;
 import com.vklochkov.model.Product;
 
@@ -5,7 +7,7 @@ import javax.jws.WebService;
 import java.util.List;
 
 @WebService(
-    endpointInterface = "ProductCatalog",
+    endpointInterface = "com.vklochkov.soap.ProductCatalog",
     targetNamespace = "http://sellmegood.com",
     serviceName = "ProductCatalogService",
     portName = "ProductCatalogPort"

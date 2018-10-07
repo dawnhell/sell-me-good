@@ -1,3 +1,5 @@
+package com.vklochkov.soap;
+
 import com.vklochkov.model.Product;
 
 import javax.jws.WebMethod;
@@ -7,7 +9,7 @@ import java.util.List;
 
 @WebService(
     targetNamespace = "http://sellmegood.com",
-    name = "ProductCatalogImpl"
+    name = "com.vklochkov.soap.ProductCatalogImpl"
 )
 public interface ProductCatalog {
     @WebMethod(

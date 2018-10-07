@@ -1,12 +1,57 @@
-<div class="header">
-    <mat-toolbar color="primary">
-        <span class="title">SellMeGood</span>
+<nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+        <h3 class="brand-name">SellMeGood</h3>
+        <i class="brand-icon anticon anticon-shopping-cart"></i>
 
-        <ul class="nav-links">
-            <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+            <li nz-menu-item routerLink="/home" routerLinkActive="active">
+                <i class="anticon anticon-home"></i>
+                <span class="nav-text">Home</span>
+            </li>
+
+            <li nz-submenu>
+                <span title><i class="anticon anticon-user"></i><span class="nav-text">User</span></span>
+                <ul>
+                    <li nz-menu-item>Tom</li>
+                    <li nz-menu-item>Bill</li>
+                    <li nz-menu-item>Alex</li>
+                </ul>
+            </li>
+
+            <li nz-submenu>
+                <span title><i class="anticon anticon-team"></i><span class="nav-text">Team</span></span>
+                <ul>
+                    <li nz-menu-item>Team 1</li>
+                    <li nz-menu-item>Team 2</li>
+                </ul>
+            </li>
+
+            <li nz-menu-item routerLink="/about" routerLinkActive="active">
+                <i class="anticon anticon-info-circle-o"></i>
+                <span class="nav-text">About</span>
+            </li>
         </ul>
-    </mat-toolbar>
-</div>
+    </nz-sider>
 
+    <nz-layout>
+        <nz-header>
+            <i
+                class="anticon trigger"
+                [class.anticon-menu-fold]="!isCollapsed"
+                [class.anticon-menu-unfold]="isCollapsed"
+                (click)="isCollapsed=!isCollapsed"
+            >
+            </i>
+        </nz-header>
 
-<router-outlet></router-outlet>
+        <nz-content class="content-container">
+            <router-outlet></router-outlet>
+        </nz-content>
+
+        <nz-footer style="text-align: center;">SellMeGood ©2018 Created by Vladislav Klochkov</nz-footer>
+    </nz-layout>
+</nz-layout>
+
+<ng-template #trigger>
+    <i class="anticon anticon-up"></i>
+</ng-template>

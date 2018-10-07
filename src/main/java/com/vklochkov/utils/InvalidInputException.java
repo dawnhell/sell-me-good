@@ -1,3 +1,5 @@
+package com.vklochkov.utils;
+
 public class InvalidInputException extends Exception {
     private String errorDetails;
 

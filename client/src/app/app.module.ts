@@ -1,31 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import en from '@angular/common/locales/en';
+
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { MaterialModule } from './material.module';
-import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './component/home/home.component';
+
 import { ProductCatalogService } from './service/product-catalog.service';
-import { HttpClientModule } from '@angular/common/http';
-import { NgxSoapModule } from 'ngx-soap';
-import { FormsModule } from '@angular/forms';
+import { InfoService } from './service/info.service';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './component/about/about.component';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    NgxSoapModule,
     HttpClientModule,
-    MaterialModule,
+    NgZorroAntdModule,
     AppRoutingModule
   ],
-  providers: [ProductCatalogService],
+  providers: [
+    ProductCatalogService,
+    InfoService,
+    { provide: NZ_I18N, useValue: en_US }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

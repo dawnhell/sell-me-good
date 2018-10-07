@@ -5,8 +5,16 @@ import com.vklochkov.model.Info;
 import java.sql.*;
 
 public class InfoDS {
+    private Connection connection;
+
+    public InfoDS (Connection connection) {
+        this.connection = connection;
+    }
+
+    /*
+    *  Get shop info
+    */
     public Info getInfo () {
-        Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
 
@@ -16,8 +24,7 @@ public class InfoDS {
         String about = "";
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wsdb?user=root&password=root");
-            stmt = conn.createStatement();
+            stmt = this.connection.createStatement();
             rs = stmt.executeQuery("SELECT * FROM Info");
 
             while (rs.next()) {
