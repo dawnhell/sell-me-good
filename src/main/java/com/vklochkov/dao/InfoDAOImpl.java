@@ -1,18 +1,13 @@
 package com.vklochkov.dao;
 
-import com.vklochkov.ds.DBConnector;
 import com.vklochkov.ds.InfoDS;
 import com.vklochkov.model.Info;
-
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class InfoDAOImpl implements InfoDAO {
     private final InfoDS infoDS;
 
-    public InfoDAOImpl () throws SQLException {
-        Connection connection = new DBConnector().getConnection();
-        this.infoDS = new InfoDS(connection);
+    public InfoDAOImpl (InfoDS infoDs) {
+        this.infoDS = infoDs;
     }
 
     @Override
@@ -21,7 +16,7 @@ public class InfoDAOImpl implements InfoDAO {
     }
 
     @Override
-    public void saveInfo (Info info) {
-
+    public Info saveInfo (Info info) {
+        return this.infoDS.saveInfo(info);
     }
 }

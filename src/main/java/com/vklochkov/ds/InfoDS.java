@@ -1,40 +1,38 @@
 package com.vklochkov.ds;
 
 import com.vklochkov.model.Info;
+import com.vklochkov.utils.MySQLHelper;
 
 import java.sql.*;
 
 public class InfoDS {
-    private Connection connection;
+    public InfoDS () { }
 
-    public InfoDS (Connection connection) {
-        this.connection = connection;
-    }
-
-    /*
-    *  Get shop info
-    */
-    public Info getInfo () {
-        Statement stmt = null;
-        ResultSet rs = null;
-
+    private Info sendRequest (String query, String type) {
         String shopName = "";
         String foundationDate = "";
         String author = "";
         String about = "";
 
         try {
-            stmt = this.connection.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM Info");
+            if (type == "select") {
+                ResultSet rs = new MySQLHelper().sendSelectSQLRequest(query);
 
-            while (rs.next()) {
-                shopName = rs.getString("shopName");
-                foundationDate = rs.getString("foundationDate");
-                author = rs.getString("author");
-                about = rs.getString("about");
+                while (rs.next()) {
+                    shopName = rs.getString("shopName");
+                    foundationDate = rs.getString("foundationDate");
+                    author = rs.getString("author");
+                    about = rs.getString("about");
+                }
+
+                return new Info(shopName, foundationDate, author, about);
+            } else if (type == "update") {
+                int rs = new MySQLHelper().sendUpdateSQLRequest(query);
+
+                if (rs != 0) {
+                    return sendRequest("SELECT * FROM Info;", "select");
+                }
             }
-
-            return new Info(shopName, foundationDate, author, about);
 
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
@@ -43,5 +41,19 @@ public class InfoDS {
         }
 
         return new Info("", "", "", "");
+    }
+
+    /*
+    *  Get shop info
+    */
+    public Info getInfo () {
+        return this.sendRequest("SELECT * FROM Info;", "select");
+    }
+
+    /*
+    * Save info
+    */
+    public Info saveInfo (Info info) {
+        return this.sendRequest("UPDATE Info SET shopName='" + info.getShopName() + "', foundationDate='" + info.getFoundationDate() + "', author='" + info.getAuthor() + "', about='" + info.getAbout() + "';", "update");
     }
 }

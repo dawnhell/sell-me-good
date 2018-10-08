@@ -19,8 +19,8 @@ import java.sql.SQLException;
 public class ShopInfoImpl implements ShopInfo {
     private InfoDAOImpl infoDAO;
 
-    public ShopInfoImpl() throws SQLException {
-        this.infoDAO = new InfoDAOImpl();
+    public ShopInfoImpl() {
+//        this.infoDAO = new InfoDAOImpl();
     }
 
     @Override
