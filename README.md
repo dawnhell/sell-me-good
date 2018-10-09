@@ -18,12 +18,13 @@ cd client
 npm i
 npm start
 ```
-And open browser on the page: ```http://localhost:4200```
+And open browser on the page: ```http://localhost:3000```
 
 ### Architecture
 #### Server
 Server app is build up with Java EE service GlassFish.
 
+#### SOAP Part
 Currently now there are 2 SOAP services: ```com.vklochkov.soap.ProductCatalog``` and ```com.vklochkov.soap.ShopInfo```
 
 Example of the WSDL file for ```com.vklochkov.soap.ShopInfo``` service:
@@ -116,6 +117,25 @@ Example of SOAP request for ```com.vklochkov.soap.ProductCatalog.getProductsByCa
     </S:Body>
 </S:Envelope>
 ```
+
+#### REST Part
+REST part is made on ```Jersey``` RESTful Web Services(more about [Jersey](https://jersey.github.io/index.html))
+
+##### Info Service
+Consists of two methods:
+```java
+@GET
+@Produces(MediaType.APPLICATION_JSON)
+public InfoBean getInfo () {}
+```
+and
+```java
+@POST
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public InfoBean saveInfo(Info info) {}
+```
+The endpoint for these methods: ```/sellmegood/api/info```
 
 #### Client
 Client is build on NodeJS/Angular 6 stack.
