@@ -3,8 +3,65 @@
 </div>
 
 <div class="about-container" *ngIf="info">
-  <h2>Shop name: {{info.shopName}}</h2>
-  <h3>Author: {{info.author}}</h3>
-  <h3>Foundation date: {{info.foundationDate}}</h3>
-  <p>{{info.about}}</p>
+  <div *ngIf="!isEditing" nz-row>
+    <div nz-col nzSpan="18" nzOffset="6">
+      <h3>Shop name: {{info.shopName}}</h3>
+    </div>
+
+    <div nz-col nzSpan="18" nzOffset="6">
+      <h3>Author: {{info.author}}</h3>
+    </div>
+
+    <div nz-col nzSpan="18" nzOffset="6">
+      <h3>Foundation date: {{info.foundationDate}}</h3>
+    </div>
+
+    <div nz-col nzSpan="18" nzOffset="6">
+      <h4>{{info.about}}</h4>
+    </div>
+
+    <div nz-col nzSpan="10" nzOffset="6">
+      <button nz-button nzType="primary" (click)="isEditing = !isEditing">Edit</button>
+    </div>
+  </div>
+
+  <form *ngIf="isEditing" nz-form [formGroup]="editInfoForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item nz-row>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="shopName">Shop Name</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24">
+        <input type="text" nz-input formControlName="shopName" placeholder="Shop Name" id="shopName">
+      </nz-form-control>
+      <nz-form-explain *ngIf="editInfoForm.get('shopName').dirty && editInfoForm.get('shopName').errors">Please enter shop name!</nz-form-explain>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="author">Author</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24">
+        <input type="text" nz-input formControlName="author" placeholder="Author" id="author">
+      </nz-form-control>
+      <nz-form-explain *ngIf="editInfoForm.get('author').dirty && editInfoForm.get('author').errors">Please enter author!</nz-form-explain>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="foundationDate">Foundation Date</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <nz-date-picker formControlName="foundationDate" id="foundationDate"></nz-date-picker>
+      </nz-form-control>
+      <nz-form-explain *ngIf="editInfoForm.get('foundationDate').dirty && editInfoForm.get('foundationDate').errors">Please enter faoundation date!</nz-form-explain>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="about">About</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24">
+        <input type="text" nz-input formControlName="about" placeholder="About" id="about">
+      </nz-form-control>
+      <nz-form-explain *ngIf="editInfoForm.get('about').dirty && editInfoForm.get('about').errors">Please enter about!</nz-form-explain>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button class="login-form-button" [nzType]="'primary'">Save</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
 </div>

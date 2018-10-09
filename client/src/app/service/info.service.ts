@@ -12,5 +12,9 @@ export class InfoService {
   getInfo (): Observable<Info> {
     return this._httpClient.get<Info>('http://localhost:8080/sellmegood/api/info');
   }
+
+  saveInfo (info): Observable<Info> {
+    return this._httpClient.post<Info>('http://localhost:8080/sellmegood/api/info', info);
+  }
 }
 
