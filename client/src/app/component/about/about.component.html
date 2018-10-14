@@ -4,23 +4,23 @@
 
 <div class="about-container" *ngIf="info">
   <div *ngIf="!isEditing" nz-row>
-    <div nz-col nzSpan="18" nzOffset="6">
+    <div nz-col nzSpan="18">
       <h3>Shop name: {{info.shopName}}</h3>
     </div>
 
-    <div nz-col nzSpan="18" nzOffset="6">
+    <div nz-col nzSpan="18">
       <h3>Author: {{info.author}}</h3>
     </div>
 
-    <div nz-col nzSpan="18" nzOffset="6">
+    <div nz-col nzSpan="18">
       <h3>Foundation date: {{info.foundationDate}}</h3>
     </div>
 
-    <div nz-col nzSpan="18" nzOffset="6">
+    <div nz-col nzSpan="18">
       <h4>{{info.about}}</h4>
     </div>
 
-    <div nz-col nzSpan="10" nzOffset="6">
+    <div nz-col nzSpan="10">
       <button nz-button nzType="primary" (click)="isEditing = !isEditing">Edit</button>
     </div>
   </div>
