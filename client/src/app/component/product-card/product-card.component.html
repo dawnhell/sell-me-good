@@ -1,0 +1,21 @@
+<div class="product-card">
+  <nz-card style="width:300px;" [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+    <nz-card-meta nzTitle={{product.cartDesc}} nzDescription={{product.shortDesc}}></nz-card-meta>
+  </nz-card>
+
+  <ng-template #coverTemplate>
+    <img alt="example" src={{product.image}} />
+  </ng-template>
+
+  <ng-template #actionSetting>
+    <i class="anticon anticon-setting"></i>
+  </ng-template>
+
+  <ng-template #actionEdit>
+    <i class="anticon anticon-edit"></i>
+  </ng-template>
+
+  <ng-template #actionEllipsis>
+    <i class="anticon anticon-ellipsis"></i>
+  </ng-template>
+</div>

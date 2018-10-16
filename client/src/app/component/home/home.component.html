@@ -1,1 +1,6 @@
-kek!!
+<div class="home-wrapper">
+    <div *ngIf="_productList.length > 0">
+        <app-product-card *ngFor="let product of _productList" [product]="product"></app-product-card>
+    </div>
+</div>
+

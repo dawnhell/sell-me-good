@@ -8,6 +8,20 @@ import java.sql.*;
 public class InfoDS {
     public InfoDS () { }
 
+    /*
+     *  Get shop info
+     */
+    public InfoBean getInfo () {
+        return this.sendRequest("SELECT * FROM Info;", "select");
+    }
+
+    /*
+     * Save info
+     */
+    public InfoBean saveInfo (InfoBean info) {
+        return this.sendRequest("UPDATE Info SET shopName='" + info.getShopName() + "', foundationDate='" + info.getFoundationDate() + "', author='" + info.getAuthor() + "', about='" + info.getAbout() + "';", "update");
+    }
+
     private InfoBean sendRequest (String query, String type) {
         String shopName = "";
         String foundationDate = "";
@@ -41,19 +55,5 @@ public class InfoDS {
         }
 
         return new InfoBean("", "", "", "");
-    }
-
-    /*
-    *  Get shop info
-    */
-    public InfoBean getInfo () {
-        return this.sendRequest("SELECT * FROM Info;", "select");
-    }
-
-    /*
-    * Save info
-    */
-    public InfoBean saveInfo (InfoBean info) {
-        return this.sendRequest("UPDATE Info SET shopName='" + info.getShopName() + "', foundationDate='" + info.getFoundationDate() + "', author='" + info.getAuthor() + "', about='" + info.getAbout() + "';", "update");
     }
 }

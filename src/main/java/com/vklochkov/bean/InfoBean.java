@@ -4,10 +4,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class InfoBean {
-    public String shopName;
-    public String foundationDate;
-    public String author;
-    public String about;
+    private String shopName;
+    private String foundationDate;
+    private String author;
+    private String about;
 
     public InfoBean () {}
 

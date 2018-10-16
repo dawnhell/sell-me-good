@@ -12,11 +12,13 @@ import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 
+import { ProductService } from './service/product.service';
 import { ProductCatalogService } from './service/product-catalog.service';
 import { InfoService } from './service/info.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AboutComponent } from './component/about/about.component';
+import { ProductCardComponent } from './component/product-card/product-card.component';
 
 registerLocaleData(en);
 
@@ -24,7 +26,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ registerLocaleData(en);
     AppRoutingModule
   ],
   providers: [
+    ProductService,
     ProductCatalogService,
     InfoService,
     { provide: NZ_I18N, useValue: en_US }
