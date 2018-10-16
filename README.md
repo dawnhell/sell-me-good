@@ -121,6 +121,14 @@ Example of SOAP request for ```com.vklochkov.soap.ProductCatalog.getProductsByCa
 #### REST Part
 REST part is made on ```Jersey``` RESTful Web Services(more about [Jersey](https://jersey.github.io/index.html))
 
+##### Product Service:
+Consists of one method:
+```java
+@GET
+@Produces(MediaType.APPLICATION_JSON)
+public ArrayList<ProductBean> getProducts () {}
+```
+
 ##### Info Service
 Consists of two methods:
 ```java
