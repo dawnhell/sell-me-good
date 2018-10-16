@@ -1,6 +1,6 @@
 package com.vklochkov.ds;
 
-import com.vklochkov.model.Info;
+import com.vklochkov.bean.InfoBean;
 import com.vklochkov.utils.MySQLHelper;
 
 import java.sql.*;
@@ -8,7 +8,7 @@ import java.sql.*;
 public class InfoDS {
     public InfoDS () { }
 
-    private Info sendRequest (String query, String type) {
+    private InfoBean sendRequest (String query, String type) {
         String shopName = "";
         String foundationDate = "";
         String author = "";
@@ -25,7 +25,7 @@ public class InfoDS {
                     about = rs.getString("about");
                 }
 
-                return new Info(shopName, foundationDate, author, about);
+                return new InfoBean(shopName, foundationDate, author, about);
             } else if (type == "update") {
                 int rs = new MySQLHelper().sendUpdateSQLRequest(query);
 
@@ -40,20 +40,20 @@ public class InfoDS {
             System.out.println("VendorError: " + ex.getErrorCode());
         }
 
-        return new Info("", "", "", "");
+        return new InfoBean("", "", "", "");
     }
 
     /*
     *  Get shop info
     */
-    public Info getInfo () {
+    public InfoBean getInfo () {
         return this.sendRequest("SELECT * FROM Info;", "select");
     }
 
     /*
     * Save info
     */
-    public Info saveInfo (Info info) {
+    public InfoBean saveInfo (InfoBean info) {
         return this.sendRequest("UPDATE Info SET shopName='" + info.getShopName() + "', foundationDate='" + info.getFoundationDate() + "', author='" + info.getAuthor() + "', about='" + info.getAbout() + "';", "update");
     }
 }

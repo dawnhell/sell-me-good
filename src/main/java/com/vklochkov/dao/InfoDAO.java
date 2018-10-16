@@ -1,9 +1,9 @@
 package com.vklochkov.dao;
 
-import com.vklochkov.model.Info;
+import com.vklochkov.bean.InfoBean;
 
 public interface InfoDAO {
-    public Info getInfo();
+    public InfoBean getInfo();
 
-    public Info saveInfo(Info info);
+    public InfoBean saveInfo(InfoBean info);
 }

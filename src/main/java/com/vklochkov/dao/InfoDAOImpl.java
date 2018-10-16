@@ -1,7 +1,7 @@
 package com.vklochkov.dao;
 
+import com.vklochkov.bean.InfoBean;
 import com.vklochkov.ds.InfoDS;
-import com.vklochkov.model.Info;
 
 public class InfoDAOImpl implements InfoDAO {
     private final InfoDS infoDS;
@@ -11,12 +11,12 @@ public class InfoDAOImpl implements InfoDAO {
     }
 
     @Override
-    public Info getInfo () {
+    public InfoBean getInfo () {
         return this.infoDS.getInfo();
     }
 
     @Override
-    public Info saveInfo (Info info) {
+    public InfoBean saveInfo (InfoBean info) {
         return this.infoDS.saveInfo(info);
     }
 }
