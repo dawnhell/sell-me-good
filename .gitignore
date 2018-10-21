@@ -37,3 +37,4 @@ client/dist/
 client/package-lock.json
 
 encryption/
+client/env/
