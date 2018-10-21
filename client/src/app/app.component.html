@@ -1,33 +1,21 @@
 <nz-layout>
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
         <h3 class="brand-name">SellMeGood</h3>
-        <i class="brand-icon anticon anticon-shopping-cart"></i>
+        <i nz-icon type="shopping-cart" class="brand-icon"></i>
 
         <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
             <li nz-menu-item routerLink="/home" routerLinkActive="active">
-                <i class="anticon anticon-home"></i>
+                <i nz-icon type="home"></i>
                 <span class="nav-text">Home</span>
             </li>
 
-            <li nz-submenu>
-                <span title><i class="anticon anticon-user"></i><span class="nav-text">User</span></span>
-                <ul>
-                    <li nz-menu-item>Tom</li>
-                    <li nz-menu-item>Bill</li>
-                    <li nz-menu-item>Alex</li>
-                </ul>
-            </li>
-
-            <li nz-submenu>
-                <span title><i class="anticon anticon-team"></i><span class="nav-text">Team</span></span>
-                <ul>
-                    <li nz-menu-item>Team 1</li>
-                    <li nz-menu-item>Team 2</li>
-                </ul>
+            <li nz-menu-item routerLink="/users" routerLinkActive="active">
+                <i nz-icon type="user"></i>
+                <span class="nav-text">Users</span>
             </li>
 
             <li nz-menu-item routerLink="/about" routerLinkActive="active">
-                <i class="anticon anticon-info-circle-o"></i>
+                <i nz-icon type="info-circle-o"></i>
                 <span class="nav-text">About</span>
             </li>
         </ul>
@@ -42,6 +30,22 @@
                 (click)="isCollapsed=!isCollapsed"
             >
             </i>
+
+            <app-login *ngIf="!loginService.isLoggedIn" class="login-link"></app-login>
+
+            <button
+                class="logged-user-link"
+                *ngIf="loginService.isLoggedIn"
+                nz-button
+                nz-popover
+                [nzContent]="logoutLink"
+                nzPlacement="bottomRight"
+            >
+                Hi, {{localStorage.getItem('User')}}
+            </button>
+            <ng-template #logoutLink>
+                <a href="#" (click)="logout($event)">Logout</a>
+            </ng-template>
         </nz-header>
 
         <nz-content class="content-container">

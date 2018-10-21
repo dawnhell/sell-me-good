@@ -12,8 +12,8 @@ module.exports = {
             let result = {};
             let status = 201;
             if (!err) {
-                const { name, password } = req.body;
-                let userExists = await mongoose.model('User').countDocuments({ name }, (err, count) => count);
+                const { email, password } = req.body;
+                let userExists = await mongoose.model('User').countDocuments({ email }, (err, count) => count);
 
                 console.log('controller', userExists);
                 if (userExists) {
@@ -22,8 +22,8 @@ module.exports = {
                     console.log('user exists', result);
                     res.status(status).json(result);
                 } else {
-                    const user = new User({ name, password });
-                    console.log('user not exists', name);
+                    const user = new User({ email, password });
+                    console.log('user not exists', email);
                     // TODO: We can hash the password here before we insert instead of in the model
                     user.save((err, user) => {
                         console.log('controller here', err, user);
@@ -49,27 +49,27 @@ module.exports = {
     },
 
     login: (req, res) => {
-        const { name, password } = req.body;
+        const { email, password } = req.body;
 
         mongoose.connect(connUri, { useNewUrlParser: true }, (err) => {
             let result = {};
             let status = 200;
             if(!err) {
-                User.findOne({name}, (err, user) => {
+                User.findOne({ email }, (err, user) => {
                     if (!err && user) {
                         // We could compare passwords in our model instead of below as well
                         bcrypt.compare(password, user.password).then(match => {
                             if (match) {
                                 status = 200;
                                 // Create a token
-                                const payload = { user: user.name };
+                                const payload = { user: user.email };
                                 const options = { expiresIn: '1d', issuer: 'https://sell-me-good.io' };
                                 const secret = process.env.JWT_SECRET;
                                 const token = jwt.sign(payload, secret, options);
 
                                 result.token = token;
                                 result.status = status;
-                                result.result = user;
+                                result.result = user.email;
                             } else {
                                 status = 401;
                                 result.status = status;
@@ -83,6 +83,7 @@ module.exports = {
                             res.status(status).send(result);
                         });
                     } else {
+                        console.log('here');
                         status = 404;
                         result.status = status;
                         result.error = err;

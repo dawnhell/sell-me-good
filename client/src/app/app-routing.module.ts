@@ -1,10 +1,14 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from "./component/home/home.component";
-import { AboutComponent } from "./component/about/about.component";
+import { HomeComponent } from './component/home/home.component';
+import { AboutComponent } from './component/about/about.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { UsersComponent } from './component/users/users.component';
 
-const routes:Routes = [
+import { AuthGuard } from './auth/auth.guard';
+
+const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
@@ -15,8 +19,17 @@ const routes:Routes = [
     component: HomeComponent
   },
   {
+    path: 'users',
+    canActivate: [AuthGuard],
+    component: UsersComponent
+  },
+  {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 

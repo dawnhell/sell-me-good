@@ -6,7 +6,7 @@ const saltingRounds = process.env.SALTING_ROUNDS;
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    name: {
+    email: {
         type: 'String',
         required: true,
         trim: true,
@@ -23,11 +23,10 @@ userSchema.pre('save', function(next) {
     const user = this;
     bcrypt.hash(user.password, parseInt(saltingRounds), (err, hash) => {
         if (err) {
-            console.log('Error hashing password for user', user.name);
+            console.log('Error hashing password for user', user.email);
             next(err);
         } else {
             user.password = hash;
-            console.log('here', user);
             next();
         }
     });
