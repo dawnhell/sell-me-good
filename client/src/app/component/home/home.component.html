@@ -1,6 +1,8 @@
-<div class="home-wrapper">
-    <div *ngIf="_productList.length > 0">
-        <app-product-card *ngFor="let product of _productList" [product]="product"></app-product-card>
+<div nz-row class="home-wrapper">
+    <div *ngIf="productList.length > 0">
+        <div nz-col nzSpan="8" *ngFor="let product of productList">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
     </div>
 </div>
 
