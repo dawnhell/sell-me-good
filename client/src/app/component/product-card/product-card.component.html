@@ -12,7 +12,7 @@
   </ng-template>
 
   <ng-template #actionEdit>
-    <i class="anticon anticon-edit"></i>
+    <a [routerLink]="['/product', product.id]"><i class="anticon anticon-edit"></i></a>
   </ng-template>
 
   <ng-template #actionEllipsis>

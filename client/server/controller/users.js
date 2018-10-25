@@ -83,7 +83,6 @@ module.exports = {
                             res.status(status).send(result);
                         });
                     } else {
-                        console.log('here');
                         status = 404;
                         result.status = status;
                         result.error = err;

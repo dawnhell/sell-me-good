@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
             this.isVisible = false;
             this.validateForm.reset();
 
-            localStorage.setItem('User', data['result']['email']);
+            localStorage.setItem('User', data['result']);
             localStorage.setItem('Token', data['token']);
           },
           error => {

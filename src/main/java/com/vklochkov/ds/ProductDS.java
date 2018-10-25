@@ -45,6 +45,38 @@ public class ProductDS {
         return result;
     }
 
+    public ProductBean getProduct(int id) {
+        ProductBean result = null;
+        try {
+            ResultSet rrs = new MySQLHelper().sendSelectSQLRequest("SELECT * FROM Products WHERE Products.ProductID=" + id + ";");
+            rrs.next();
+
+            result = new ProductBean(
+                rrs.getInt("ProductID"),
+                rrs.getInt("ProductLive"),
+                rrs.getInt("ProductCategoryID"),
+                rrs.getInt("ProductUnlimited"),
+                rrs.getFloat("ProductPrice"),
+                rrs.getFloat("ProductWeight"),
+                rrs.getFloat("ProductStock"),
+                rrs.getString("ProductSKU"),
+                rrs.getString( "ProductName"),
+                rrs.getString( "ProductCartDesc"),
+                rrs.getString( "ProductShortDesc"),
+                rrs.getString( "ProductLongDesc"),
+                rrs.getString( "ProductThumb"),
+                rrs.getString( "ProductImage"),
+                rrs.getString( "ProductUpdateDate"),
+                rrs.getString( "ProductLocation")
+            );
+        } catch(SQLException ex){
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+
+        return result;
+    }
 
     private ProductBean sendRequest(String query, String type) {
         try {

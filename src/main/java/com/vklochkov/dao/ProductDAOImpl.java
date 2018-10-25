@@ -19,7 +19,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public ProductBean getProductById(int id) {
-        return null;
+        return this.productDS.getProduct(id);
     }
 
     @Override

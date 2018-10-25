@@ -14,4 +14,8 @@ export class ProductService {
   getProducts (): Observable<Array<Product>> {
     return this._httpClient.get<Array<Product>>('http://localhost:8080/sellmegood/api/products');
   }
+
+  getProduct (id: number): Observable<Product> {
+    return this._httpClient.get<Product>('http://localhost:8080/sellmegood/api/product/' + id);
+  }
 }

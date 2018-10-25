@@ -1,0 +1,15 @@
+<nz-alert *ngIf="!product.id" nzType="info" nzMessage="Loading information."></nz-alert>
+
+<div *ngIf="product.id" class="product-details">
+  <div class="product" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+    <div nz-col nzSpan="6">
+      <img src="{{product.image}}" alt="image">
+    </div>
+    <div nz-col nzSpan="18">
+      <h2>{{product.name}} {{product.sku}}</h2>
+      <h4>{{product.longDesc}}</h4>
+      <p>Price: {{product.price}}. In stock: {{product.stock}}</p>
+    </div>
+  </div>
+</div>
+

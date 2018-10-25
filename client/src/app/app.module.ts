@@ -22,6 +22,7 @@ import { ProductCardComponent  } from './component/product-card/product-card.com
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { UsersComponent        } from './component/users/users.component';
 import { LoginComponent } from './component/login/login.component';
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
 
 registerLocaleData(en);
 
@@ -33,7 +34,8 @@ registerLocaleData(en);
     AboutComponent,
     ProductCardComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
