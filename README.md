@@ -1,5 +1,8 @@
 ## Sell Me Good
 
+### Demo is available!
+[Demo(on AWS)](https://ec2-18-222-189-102.us-east-2.compute.amazonaws.com)
+
 This is a Java Web application based on Web Services (SOAP and REST).
 
 The application represents a simple e-commerce online store for selling and buying goods.
