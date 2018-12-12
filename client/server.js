@@ -9,8 +9,8 @@ const helmet = require('helmet');
 
 require('dotenv').config({ path: path.join(__dirname, '/env/.env') });
 
-const key = fs.readFileSync(path.join(__dirname, '/../encryption/vklochkov.key'));
-const cert = fs.readFileSync(path.join(__dirname, '/../encryption/vklochkov.crt' ));
+const key = fs.readFileSync(path.join(__dirname, '/encryption/vklochkov.key'));
+const cert = fs.readFileSync(path.join(__dirname, '/encryption/vklochkov.crt' ));
 
 const options = { key, cert };
 

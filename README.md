@@ -7,6 +7,15 @@ This is a Java Web application based on Web Services (SOAP and REST).
 
 The application represents a simple e-commerce online store for selling and buying goods.
 
+### Dockerizing
+#### Client
+Node.js client is dockerized in it's own container. All configs are in Dockerfile.
+Assuming you are in ```client``` folder.
+To build image run: ```npm run docker-build```
+To run image run: ```npm run docker-run```
+If you want to check working container run: ```npm run check-docker-client```, then you'll see something like this:
+![docker client](https://github.com/vladislav-klochkov/sell-me-good/blob/master/Docker-client.png) 
+
 ### How to start project
 To run server side you need:
 - Java 1.8 or later;

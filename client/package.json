@@ -1,6 +1,6 @@
 {
   "name": "sell-me-good",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng build && node server.js",
@@ -9,7 +9,10 @@
     "build:watch": "ng build --watch",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "docker-build": "docker build -t vladislav/sell-me-good-client .",
+    "docker-run": "docker run -p 49160:80 -d vladislav/sell-me-good-client",
+    "check-docker-client": "curl -i localhost:49160"
   },
   "private": true,
   "dependencies": {
